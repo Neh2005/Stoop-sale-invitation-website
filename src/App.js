@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import Background from './components/Background';
+import Message from './components/Message';
+import Eventpage from './components/Eventpage'; // Ensure this import is correct
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [currentPage, setCurrentPage] = useState('home'); // State to manage current page
+
+    const renderPage = () => {
+        switch (currentPage) {
+            case 'home':
+                return (
+                    <>
+                        <Background />
+                        <Message />
+                    </>
+                );
+            case 'event':
+                return <Eventpage />;
+           
+            default:
+                return <Background />;
+        }
+    };
+
+    return (
+        <div>
+            <Navbar setCurrentPage={setCurrentPage} />
+            {renderPage()}
+        </div>
+    );
+};
 
 export default App;
