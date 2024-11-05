@@ -65,8 +65,9 @@ const sentence = "Your personalized message here!";
    <p>Time: Updated time</p>
 
 ### Changing the Background Video
-
+   ```javascript
    <source src="https://your-video-link.mp4" type="video/mp4" />
+   ```
 
 
 ## 🌐 Deployment
